@@ -12,6 +12,27 @@
       }
     }
   </script>
+  <style>
+    body {
+        margin: 0;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10vh;
+        width: 10vh;
+    }
+
+    #scene-container {
+        position: relative;
+        width: 40vw;
+        height: 40vh;
+    }
+
+    canvas {
+        display: block;
+    }
+  </style>
   <script type="module">
     import * as THREE from 'three';
     import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -30,7 +51,7 @@
     // Initialize renderer
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
+    document.getElementById('scene-container').appendChild(renderer.domElement);
 
     // Initialize orbit controls
     const controls = new OrbitControls(camera, renderer.domElement);
@@ -82,5 +103,8 @@
   </script>
 </head>
 <body>
+  <div id="scene-container">
+
+  </div>
 </body>
 </html>
